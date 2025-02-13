@@ -10,7 +10,7 @@ and then add to it to accept more formats.
 
 Use the logisim in the folder to avoid errors with different versions.
 
-References
+# References
 This project is based on and inspired by several resources:
 
 CS61C Lectures (UC Berkeley): 
