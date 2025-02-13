@@ -8,12 +8,13 @@ I've broken down the implementation by iteratively copying the stages described 
 Lecture 18.1 - Single-Cycle CPU Datapath I: RISC-V Processor Design as such there is a start version which only accepts R-type, 
 and then add to it to accept more formats.
 
+Use the logisim in the folder to avoid errors with different versions.
+
 References
 This project is based on and inspired by several resources:
 
 CS61C Lectures (UC Berkeley): 
-Great Ideas in Computer Architecture
-https://www.youtube.com/watch?v=VJ6tuX5bBf4&list=PL0j-r-omG7i0-mnsxN5T4UcVS1Di0isqf&ab_channel=CS61CDepartmental
+[Great Ideas in Computer Architecture](https://www.youtube.com/watch?v=VJ6tuX5bBf4&list=PL0j-r-omG7i0-mnsxN5T4UcVS1Di0isqf&ab_channel=CS61CDepartmental)
 
 Research Paper:
 RV32I Implementation Details (arXiv)
