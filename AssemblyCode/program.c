@@ -1,18 +1,14 @@
-// noinline to prevent clang from constant propagating
-__attribute__((noinline))
-int fib(int n) {
-	int prev = 1;
-	int prev2 = 0;
-	int curr = 1;
-	for (int i = 0; i < n; ++i) {
-		curr = prev + prev2;
-		prev = prev2;
-		prev2 = curr;
-	}
+// Translating from C to RISC-V
+int n = 12;
 
-	return curr;
-}
-
-int main() {
-	return fib(20); // fib(20) should be 6765
+// Function to find the nth Fibonacci number
+int main(void) {
+    int curr_fib = 0, next_fib = 1;
+    int new_fib;
+    for (int i = n; i > 0; i--) {
+        new_fib = curr_fib + next_fib;
+        curr_fib = next_fib;
+        next_fib = new_fib;
+    }
+    return 0;
 }

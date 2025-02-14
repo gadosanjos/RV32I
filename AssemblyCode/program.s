@@ -1,61 +1,25 @@
-	.file	"program.c"
-	.option nopic
-	.attribute arch, "rv32i2p0"
-	.attribute unaligned_access, 0
-	.attribute stack_align, 16
-	.text
-	.align	2
-	.globl	fib
-	.type	fib, @function
-fib:
-	addi	sp,sp,-48
-	sw	s0,44(sp)
-	addi	s0,sp,48
-	sw	a0,-36(s0)
-	li	a5,1
-	sw	a5,-20(s0)
-	sw	zero,-24(s0)
-	li	a5,1
-	sw	a5,-28(s0)
-	sw	zero,-32(s0)
-	j	.L2
-.L3:
-	lw	a4,-20(s0)
-	lw	a5,-24(s0)
-	add	a5,a4,a5
-	sw	a5,-28(s0)
-	lw	a5,-24(s0)
-	sw	a5,-20(s0)
-	lw	a5,-28(s0)
-	sw	a5,-24(s0)
-	lw	a5,-32(s0)
-	addi	a5,a5,1
-	sw	a5,-32(s0)
-.L2:
-	lw	a4,-32(s0)
-	lw	a5,-36(s0)
-	blt	a4,a5,.L3
-	lw	a5,-28(s0)
-	mv	a0,a5
-	lw	s0,44(sp)
-	addi	sp,sp,48
-	jr	ra
-	.size	fib, .-fib
-	.align	2
-	.globl	main
-	.type	main, @function
+.data               # In RISC-V global variables are declared under the .data directive. This represents the data segment
+n:                  # n is the name of the variable
+    .word 12        # .word means that the size of the data is one word, 12 is the value that is assigned to n
+
+.text               # .text directive. Everything under this directive is our code.
 main:
-	addi	sp,sp,-16
-	sw	ra,12(sp)
-	sw	s0,8(sp)
-	addi	s0,sp,16
-	li	a0,20
-	call	fib
-	mv	a5,a0
-	mv	a0,a5
-	lw	ra,12(sp)
-	lw	s0,8(sp)
-	addi	sp,sp,16
-	jr	ra
-	.size	main, .-main
-	.ident	"GCC: () 10.2.0"
+    add t0, x0, x0  # curr_fib = 0
+    addi t1, x0, 1  # next_fib = 1
+    la t3, n        # load the address of the label n                                       in c t3 = &n;
+    lw t3, 0(t3)    # get the value that is stored at the adddress denoted by the label n   in c t3 = *t3;
+fib:
+    beq t3, x0, finish # exit loop once we have completed n iterations
+    add t2, t1, t0  # new_fib = curr_fib + next_fib;
+    mv t0, t1       # curr_fib = next_fib;
+    mv t1, t2       # next_fib = new_fib;
+    addi t3, t3, -1 # decrement counter
+    j fib           # loop
+finish:
+    addi a0, x0, 1  # argument to ecall to execute print integer
+    addi a1, t0, 0  # argument to ecall, the value to be printed
+    ecall           # print integer ecall
+    addi a0, x0, 10 # argument to ecall to terminate
+    ecall           # terminate ecall
+    la t3, n
+    sw t0, 4(t3)    # Store value in mem

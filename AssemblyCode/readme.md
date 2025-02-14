@@ -7,6 +7,8 @@ For Windows Download and install the prebuilt RISC-V toolchain from SiFive:
 https://www.sifive.com/software
 
 ## Step 2: Compile C Code to Assembly
+You have to check the assembly code generated and simplify it, if it can run on https://venus.cs61c.org/ then it can work 
+with logisim otherwise you have to adept it.
 Explanation of Compilation Flags:
     riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -S -o program.s input.c
         -march=rv32i → Specifies RV32I architecture.
