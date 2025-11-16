@@ -36,15 +36,24 @@ YouTube:
 
 Articles:
 [A RV32I Single Cycle CPU](https://www.bit-spinner.com/rv32i/rv32i-introduction)
+
 [A RV32I Multi Cycle CPU](https://www.bit-spinner.com/rv32i-multi-cycle/rv32i-multi-cycle-introduction)
+
 [Full Multicycle Datapath](https://taoxie.sdsu.edu/cs572/Lec10.pdf)
+
 [Multi-cycle Processors](https://medium.com/%40s.ruban2000/multi-cycle-processors-33526b105b0b)
+
 Research Paper:
+
 RV32I Implementation Details (arXiv)
 https://arxiv.org/pdf/2312.01455
 
 Open-Source Repositories:
+
 [mortie/rv32i-logisim-cpu](https://github.com/mortie/rv32i-logisim-cpu)
+
 [meiniKi/RV32I_SC_Logisim](https://github.com/meiniKi/RV32I_SC_Logisim)
+
 [eminfedar/rv32-im-cpu](https://github.com/eminfedar/rv32-im-cpu)
+
 [PritomP25/RISCV-Multicycle-Processor](https://github.com/PritomP25/RISCV-Multicycle-Processor)
