@@ -1,0 +1,10 @@
+Compile both files and run:
+iverilog -o test half_adder_tb.v half_adder.v
+iverilog -o test d_flip_flop_tb.v d_flip_flop.v
+iverilog -o test and_gate_tb.v and_gate.v
+iverilog -o test xnor_gate_tb.v xnor_gate.v
+iverilog -o test xor_gate_tb.v xor_gate.v
+iverilog -o test not_gate_tb.v not_gate.v
+vvp test
+View the waveform:
+gtkwave dump.vcd

@@ -1,7 +1,7 @@
 .data               # In RISC-V global variables are declared under the .data directive. This represents the data segment
 n:                  # n is the name of the variable
     .word 12        # .word means that the size of the data is one word, 12 is the value that is assigned to n
-
+                    # In logisim we need to write in memory ourselves, so type 12 as directives are not supported or some othher number you want to test
 .text               # .text directive. Everything under this directive is our code.
 main:
     add t0, x0, x0  # curr_fib = 0
@@ -19,7 +19,7 @@ finish:
     addi a0, x0, 1  # argument to ecall to execute print integer
     addi a1, t0, 0  # argument to ecall, the value to be printed
     ecall           # print integer ecall
-    addi a0, x0, 10 # argument to ecall to terminate
-    ecall           # terminate ecall
     la t3, n
     sw t0, 4(t3)    # Store value in mem
+    addi a0, x0, 10 # argument to ecall to terminate
+    ecall           # terminate ecall
