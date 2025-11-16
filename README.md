@@ -9,17 +9,20 @@ Lecture 18.1 - Single-Cycle CPU Datapath I: RISC-V Processor Design as such ther
 and then add to it to accept more formats.
 
 Single-cycle characteristics:
-Characteristics: Each instruction executes in one clock cycle.
+
+Each instruction executes in one clock cycle.
 Limitation: The clock period must be as long as the slowest instruction (usually memory access).
 Result: Simple, but inefficient — all functional units are idle most of the time.
 
 Multi-cycle characteristics:
-Characteristics: Each instruction is divided into multiple stages (Fetch, Decode, Execute, Memory, Write-back), each executed in a separate clock cycle.
+
+Each instruction is divided into multiple stages (Fetch, Decode, Execute, Memory, Write-back), each executed in a separate clock cycle.
 Limitation: The clock period can be shorter, determined by the slowest stage rather than the slowest instruction.
 Result: More efficient hardware utilization — functional units are reused across cycles, but overall CPI > 1 since each instruction takes several cycles.
 
 Pipelined characteristics:
-Characteristics: Multiple instructions are overlapped in execution, each occupying a different stage of the pipeline simultaneously.
+
+Multiple instructions are overlapped in execution, each occupying a different stage of the pipeline simultaneously.
 Improvement: Increases instruction throughput — ideally one instruction completes every cycle once the pipeline is full.
 Result: Significantly higher performance, but introduces complexity due to hazards (data, control, structural) that require forwarding, stalling, or prediction mechanisms to resolve.
 
@@ -32,9 +35,11 @@ CS61C Lectures (UC Berkeley):
 [Great Ideas in Computer Architecture](https://www.youtube.com/watch?v=VJ6tuX5bBf4&list=PL0j-r-omG7i0-mnsxN5T4UcVS1Di0isqf&ab_channel=CS61CDepartmental)
 
 YouTube:
+
 [Lecture by Sarah Harris](https://www.youtube.com/@sarahharris6912)
 
 Articles:
+
 [A RV32I Single Cycle CPU](https://www.bit-spinner.com/rv32i/rv32i-introduction)
 
 [A RV32I Multi Cycle CPU](https://www.bit-spinner.com/rv32i-multi-cycle/rv32i-multi-cycle-introduction)
